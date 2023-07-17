@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
-import Navbar from "./scenes/navbar";
+import Navbar from "@/scenes/navbar";
 import { SelectedPage } from "@/shared/types";
-import Home from "./scenes/home";
+import Home from "@/scenes/home";
 import Benefits from "./scenes/benefits";
-import OurClasses from "@/scenes/ourClasses"
+import OurClasses from "@/scenes/ourClasses";
+import ContactUs from "@/scenes/contactUs";
 
 const App = () => {
   const [selectedPage, setSelectedPage] = useState<SelectedPage>(
-    SelectedPage.Home,
+    SelectedPage.Home
   );
 
   const [isTopOfScreen, setIsTopOfScreen] = useState<boolean>(true);
@@ -25,10 +26,15 @@ const App = () => {
 
   return (
     <div className="app bg-gray-20">
-      <Navbar isTopOfScreen={isTopOfScreen} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+      <Navbar
+        isTopOfScreen={isTopOfScreen}
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
       <Home setSelectedPage={setSelectedPage} />
-      <Benefits setSelectedPage={setSelectedPage}/>
+      <Benefits setSelectedPage={setSelectedPage} />
       <OurClasses setSelectedPage={setSelectedPage} />
+      <ContactUs setSelectedPage={setSelectedPage} />
     </div>
   );
 };
